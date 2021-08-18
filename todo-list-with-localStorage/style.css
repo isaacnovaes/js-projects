@@ -1,0 +1,148 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+	--black: rgba(0, 0, 0, 0.87);
+	--white: rgb(255, 255, 255);
+	--gray-shadow: rgba(128, 128, 128, 0.198);
+	--orange: rgba(219, 48, 29, 0.568);
+	--orange-complementary: rgba(255, 120, 105, 0.9);
+	--green: rgba(73, 235, 150, 0.92);
+}
+
+/** Correct the inability to style clickable types in iOS and Safari.*/
+button,
+input {
+	appearance: none;
+}
+
+body {
+	height: 100vh;
+	background: linear-gradient(135deg, rgba(17, 158, 85, 0.4), rgba(73, 235, 150, 0.92));
+	padding-top: 6vh;
+	overflow-y: auto;
+}
+
+div.container {
+	width: 90%;
+	max-width: 1250px;
+	margin: 0 auto;
+	border-radius: 5px;
+	box-shadow: 0 0 2px 2px var(--gray-shadow);
+	background: var(--white);
+}
+div.input-box {
+	padding: 30px 30px 10px;
+	border-bottom: 1px solid var(--gray-shadow);
+}
+div.input-box span,
+div.tasks-box span {
+	color: rgba(255, 0, 0, 0.87);
+	box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.87);
+	border-radius: 5px;
+	padding: 5px 10px;
+	opacity: 0;
+	transition: 0.5s;
+}
+div.tasks-box span {
+	position: relative;
+	top: 15px;
+}
+div.input-box h1,
+div.tasks-box h1 {
+	font-weight: 100;
+	font-size: 1.5rem;
+	color: var(--black);
+}
+div.input-box form {
+	margin: 15px 0;
+}
+
+div.input-container,
+div.input-container-filter {
+	padding: 20px 0;
+	position: relative;
+}
+
+div.input-container input[type="text"],
+div.input-container-filter input[type="text"] {
+	position: absolute;
+	left: 100px;
+	padding: 1px 5px;
+	border: 2px solid var(--black);
+	border-radius: 5px;
+}
+div.input-container input[type="text"]:focus,
+div.input-container-filter input[type="text"]:focus {
+	border: 2px solid var(--orange);
+	border-radius: 5px;
+	outline: none;
+}
+form input[type="submit"] {
+	border: none;
+	background: var(--orange);
+	outline: 1px solid var(--black);
+	color: var(--white);
+	padding: 10px;
+	cursor: pointer;
+}
+form input[type="submit"]:focus {
+	box-shadow: 0 0 0 5px var(--white), 0 0 0 7px var(--orange);
+}
+form input[type="submit"]:focus:not(:focus-visible) {
+	box-shadow: none;
+}
+
+div.tasks-box {
+	padding: 30px;
+}
+
+.list-items-container {
+	margin: 10px 0;
+	transition: 1s ease;
+}
+.item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+	border: 1px solid var(--orange);
+	border-radius: 10px;
+}
+.item-button {
+	display: block;
+	border: none;
+	width: 40px;
+	height: 20px;
+	background: url(images/iconmonstr-x-mark-8.svg) no-repeat center;
+	background-size: contain;
+	cursor: pointer;
+}
+.item-button:focus {
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: 0 0 0 3px var(--orange);
+}
+.tasks-box input[type="button"] {
+	border: none;
+	display: block;
+	background: var(--orange);
+	outline: 1px solid var(--black);
+	color: var(--white);
+	padding: 10px;
+	margin: 20px 0 0;
+	cursor: pointer;
+}
+.tasks-box input[type="button"]:focus {
+	box-shadow: 0 0 0 5px var(--white), 0 0 0 7px var(--orange);
+}
+.tasks-box input[type="button"]:focus:not(:focus-visible) {
+	box-shadow: none;
+}
