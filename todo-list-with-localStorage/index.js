@@ -76,7 +76,6 @@ container.addEventListener("click", (event) => {
 buttonClearTasks.addEventListener("click", (event) => {
 	const tasks = document.querySelectorAll(".list-items-container");
 	const error = event.target.nextElementSibling;
-	console.log(tasks);
 
 	if (tasks.length > 0) {
 		tasks.forEach((element) => {
