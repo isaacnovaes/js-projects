@@ -1,4 +1,4 @@
-# Responsive to-do list with localStorage
+# Responsive compound loan calculator
 [Live project](https://isaaccompoundloancalculator.netlify.app/)
 
 ![Preview](images/preview1.png)
