@@ -15,7 +15,7 @@ function createTask(text) {
 	divItem.className = "item";
 	button.className = "item-button";
 	para.innerText = text;
-	container.insertBefore(divContainer, document.getElementById("button-clear"));
+	container.insertBefore(divContainer, buttonClearTasks);
 }
 
 //GET ITEMS FROM LOCAL STORAGE
@@ -76,7 +76,6 @@ container.addEventListener("click", (event) => {
 buttonClearTasks.addEventListener("click", (event) => {
 	const tasks = document.querySelectorAll(".list-items-container");
 	const error = event.target.nextElementSibling;
-	console.log(tasks);
 
 	if (tasks.length > 0) {
 		tasks.forEach((element) => {
