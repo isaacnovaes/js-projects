@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Joke Generator</title>
+		<link rel="stylesheet" href="stylesheets/main.css" />
+	</head>
+	<body>
+		<h1>Joke Generator</h1>
+		<form>
+			<label for="category">Choose a category</label>
+			<select name="category" id="category">
+				<option value="Any">Any</option>
+				<option value="Programming">Programming</option>
+				<option value="Spooky">Spooky</option>
+				<option value="Christmas">Christmas</option>
+				<option value="Pun">Pun</option>
+				<option value="Dark">Dark</option>
+				<option value="Miscellaneous">Miscellaneous</option>
+			</select>
+			<label for="type">Choose joke type</label>
+			<select name="type" id="type">
+				<option value="single">Single part joke</option>
+				<option value="double">Two part joke</option>
+			</select>
+			<div class="blocked-jokes">
+				<h2>Block a joke that can be:</h2>
+				<input type="checkbox" id="sweet" name="sweet" value="sweet">
+				<label for="sweet">sweet</label>
+
+				<input type="checkbox" id="religious" name="religious" value="religious" />
+				<label for="religious">religious</label>
+
+				<input type="checkbox" id="political" name="political" value="political" />
+				<label for="political">political</label>
+				<!-- 
+				<input type="checkbox" id="racist" name="racist" value="racist" />
+				<label for="racist"> racist</label><br>
+
+				<input type="checkbox" id="sexist" name="sexist" value="sexist" />
+				<label for="sexist">sexist</label><br>
+                BLOCKED JOKES BY DEFAULT
+            -->
+
+				<input type="checkbox" id="explicit" name="explicit" value="explicit" />
+				<label for="explicit">explicit</label>
+			</div>
+			<label for="number">Number of jokes</label>
+			<input type="number" name="number" id="number" min="1" max="10" />
+		</form>
+	</body>
+</html>
