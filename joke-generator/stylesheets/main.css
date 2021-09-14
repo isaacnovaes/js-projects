@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&display=swap");
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  font-family: "Roboto Slab", serif;
   /* Set core root defaults */
 }
 
@@ -74,4 +76,125 @@ button:-moz-focusring,
             transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+body {
+  min-height: 100vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ffeed9), color-stop(#f4e3ce), color-stop(#e9d9c4), color-stop(#dfceb9), color-stop(#d4c4af), color-stop(#d4c4ae), color-stop(#d4c3ad), color-stop(#d4c3ac), color-stop(#dfcdb4), color-stop(#ead8bb), color-stop(#f4e2c3), to(#ffedcb));
+  background-image: linear-gradient(to right bottom, #ffeed9, #f4e3ce, #e9d9c4, #dfceb9, #d4c4af, #d4c4ae, #d4c3ad, #d4c3ac, #dfcdb4, #ead8bb, #f4e2c3, #ffedcb);
+}
+
+body h1 {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 2.5rem;
+}
+
+main {
+  width: 80%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 25px;
+  background: #c6b6a2;
+  -webkit-box-shadow: inset 20px 20px 60px #a89b8a, inset -20px -20px 60px #e4d1ba;
+          box-shadow: inset 20px 20px 60px #a89b8a, inset -20px -20px 60px #e4d1ba;
+}
+
+form div.category,
+form div.type,
+form div.number-jokes {
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form div.category select,
+form div.type select {
+  border-radius: 10px;
+  padding: 3px;
+}
+
+form div.blocked-jokes-container {
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form div.blocked-jokes-container div.group {
+  width: 90px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+
+form div.number-jokes {
+  margin-top: 30px;
+  position: relative;
+}
+
+form div.number-jokes span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  text-align: center;
+  right: 111px;
+  top: -22px;
+  background-color: rgba(0, 0, 255, 0.904);
+  color: white;
+  border-radius: 50%;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+form div.number-jokes span::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  right: 1.2px;
+  top: 14px;
+  border-width: 9px;
+  border-style: solid;
+  border-color: rgba(0, 0, 255, 0.904) transparent transparent transparent;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+form input[type="submit"] {
+  display: block;
+  border: none;
+  border-radius: 26px;
+  background: #ffedcb;
+  -webkit-box-shadow: inset 15px 15px 30px #bdaf96, inset -15px -15px 30px #ffffff;
+          box-shadow: inset 15px 15px 30px #bdaf96, inset -15px -15px 30px #ffffff;
+  padding: 8px;
+  width: 150px;
+  margin: 0 auto;
+  -webkit-transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+form input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffedcb;
+  -webkit-box-shadow: inset -15px -15px 30px #d9c9ad, inset 15px 15px 30px #ffffe9;
+          box-shadow: inset -15px -15px 30px #d9c9ad, inset 15px 15px 30px #ffffe9;
 }

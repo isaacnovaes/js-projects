@@ -9,46 +9,57 @@
 	</head>
 	<body>
 		<h1>Joke Generator</h1>
-		<form>
-			<label for="category">Choose a category</label>
-			<select name="category" id="category">
-				<option value="Any">Any</option>
-				<option value="Programming">Programming</option>
-				<option value="Spooky">Spooky</option>
-				<option value="Christmas">Christmas</option>
-				<option value="Pun">Pun</option>
-				<option value="Dark">Dark</option>
-				<option value="Miscellaneous">Miscellaneous</option>
-			</select>
-			<label for="type">Choose joke type</label>
-			<select name="type" id="type">
-				<option value="single">Single part joke</option>
-				<option value="double">Two part joke</option>
-			</select>
-			<div class="blocked-jokes">
-				<h2>Block a joke that can be:</h2>
-				<input type="checkbox" id="sweet" name="sweet" value="sweet">
-				<label for="sweet">sweet</label>
+		<main>
+			<form>
+				<div class="category">
+					<label for="category">Choose a category:</label>
+					<select name="category" id="category">
+						<option value="Any">Any</option>
+						<option value="Programming">Programming</option>
+						<option value="Spooky">Spooky</option>
+						<option value="Christmas">Christmas</option>
+						<option value="Pun">Pun</option>
+						<option value="Dark">Dark</option>
+					</select>
+				</div>
+				<div class="type">
+					<label for="type">Choose joke type:</label>
+					<select name="type" id="type">
+						<option value="any">Any</option>
+						<option value="single">Single part joke</option>
+						<option value="twopart">Two part joke</option>
+					</select>
+				</div>
+				<div class="blocked-jokes">
+					<p>Block a joke that can be:</p>
+					<div class="blocked-jokes-container">
+						<div class="group">
+							<input type="checkbox" id="sweet" name="block" value="nsfw" />
+							<label for="sweet">sweet</label>
+						</div>
 
-				<input type="checkbox" id="religious" name="religious" value="religious" />
-				<label for="religious">religious</label>
-
-				<input type="checkbox" id="political" name="political" value="political" />
-				<label for="political">political</label>
-				<!-- 
-				<input type="checkbox" id="racist" name="racist" value="racist" />
-				<label for="racist"> racist</label><br>
-
-				<input type="checkbox" id="sexist" name="sexist" value="sexist" />
-				<label for="sexist">sexist</label><br>
-                BLOCKED JOKES BY DEFAULT
-            -->
-
-				<input type="checkbox" id="explicit" name="explicit" value="explicit" />
-				<label for="explicit">explicit</label>
-			</div>
-			<label for="number">Number of jokes</label>
-			<input type="number" name="number" id="number" min="1" max="10" />
-		</form>
+						<div class="group">
+							<input type="checkbox" id="religious" name="block" value="religious" />
+							<label for="religious"> religious</label>
+						</div>
+						<div class="group">
+							<input type="checkbox" id="political" name="block" value="political" />
+							<label for="political">political</label>
+						</div>
+						<div class="group">
+							<input type="checkbox" id="explicit" name="block" value="explicit" />
+							<label for="explicit"> explicit</label>
+						</div>
+					</div>
+				</div>
+				<div class="number-jokes">
+					<span>1</span>
+					<label for="number">Number of jokes:</label>
+					<input type="range" name="number" id="number" value="1" min="1" max="10"/>
+				</div>
+				<input type="submit" value="Get the jokes" />
+			</form>
+		</main>
+		<script src="app.js"></script>
 	</body>
 </html>

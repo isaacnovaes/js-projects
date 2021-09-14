@@ -2,6 +2,7 @@ html {
 	box-sizing: border-box;
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%; //Prevent adjustments of font size after orientation changes in iOS.
+	font-family: "Roboto Slab", serif;
 
 	/* Set core root defaults */
 	&:focus-within {
@@ -78,7 +79,6 @@ button:-moz-focusring,
 		scroll-behavior: auto !important;
 	}
 }
-
 
 //Style the scrollbar
 

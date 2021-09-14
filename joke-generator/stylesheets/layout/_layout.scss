@@ -1,0 +1,121 @@
+body {
+	min-height: 100vh;
+	background-image: linear-gradient(
+		to right bottom,
+		#ffeed9,
+		#f4e3ce,
+		#e9d9c4,
+		#dfceb9,
+		#d4c4af,
+		#d4c4ae,
+		#d4c3ad,
+		#d4c3ac,
+		#dfcdb4,
+		#ead8bb,
+		#f4e2c3,
+		#ffedcb
+	);
+
+	h1 {
+		text-align: center;
+		padding: 50px 0;
+		font-size: 2.5rem;
+	}
+}
+
+main {
+	width: 80%;
+	max-width: 450px;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 25px;
+	background: #c6b6a2;
+	box-shadow: inset 20px 20px 60px #a89b8a, inset -20px -20px 60px #e4d1ba;
+}
+
+form {
+	div.category,
+	div.type,
+	div.number-jokes {
+		margin: 15px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	div.category,
+	div.type {
+		select {
+			border-radius: 10px;
+			padding: 3px;
+		}
+	}
+	div.blocked-jokes-container {
+		margin: 15px 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		div.group {
+			width: 90px;
+			flex-shrink: 1;
+		}
+	}
+
+	div.number-jokes {
+		margin-top: 30px;
+		position: relative;
+		span {
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			text-align: center;
+			right: 111px;
+			top: -22px;
+			background-color: rgba(0, 0, 255, 0.904);
+			color: white;
+			border-radius: 50%;
+			transition: 0.5s ease;
+
+			&::before {
+				content: "";
+				display: block;
+				width: 5px;
+				height: 5px;
+				position: absolute;
+				right:1.2px;
+				top: 14px;
+				border-width: 9px;
+				border-style: solid;
+				border-color: rgba(0, 0, 255, 0.904) transparent transparent transparent;
+				transition: 0.5s ease;
+			}
+		}
+	}
+
+	input[type="submit"] {
+		display: block;
+		border: none;
+		border-radius: 26px;
+		background: #ffedcb;
+		box-shadow: inset 15px 15px 30px #bdaf96, inset -15px -15px 30px #ffffff;
+		padding: 8px;
+		width: 150px;
+		margin: 0 auto;
+		transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+		&:hover {
+			cursor: pointer;
+			background: #ffedcb;
+			box-shadow: inset -15px -15px 30px #d9c9ad, inset 15px 15px 30px #ffffe9;
+		}
+
+		// outline: 1px solid red;
+	}
+}
+
+// #FFEED9
+// #C6B6A2
+// #FFEDCB
+// #005B4B
