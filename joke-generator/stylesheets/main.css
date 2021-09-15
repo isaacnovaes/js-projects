@@ -92,7 +92,7 @@ body h1 {
 
 main {
   width: 80%;
-  max-width: 450px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 25px;
@@ -129,9 +129,6 @@ form div.blocked-jokes-container {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -139,8 +136,7 @@ form div.blocked-jokes-container {
 
 form div.blocked-jokes-container div.group {
   width: 90px;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
+  margin-right: 10px;
 }
 
 form div.number-jokes {
@@ -178,7 +174,7 @@ form div.number-jokes span::before {
   transition: 0.5s ease;
 }
 
-form input[type="submit"] {
+input[type="submit"] {
   display: block;
   border: none;
   border-radius: 26px;
@@ -192,9 +188,50 @@ form input[type="submit"] {
   transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
-form input[type="submit"]:hover {
+input[type="submit"]:hover {
   cursor: pointer;
   background: #ffedcb;
   -webkit-box-shadow: inset -15px -15px 30px #d9c9ad, inset 15px 15px 30px #ffffe9;
           box-shadow: inset -15px -15px 30px #d9c9ad, inset 15px 15px 30px #ffffe9;
+}
+
+div.display-jokes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+div.display-jokes div.display {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 25px;
+  background: #c6b6a2;
+  -webkit-box-shadow: inset 20px 20px 60px #a89b8a, inset -20px -20px 60px #e4d1ba;
+          box-shadow: inset 20px 20px 60px #a89b8a, inset -20px -20px 60px #e4d1ba;
+}
+
+div.display-jokes div.display p {
+  margin: 10px 0;
+}
+
+.error {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.error div {
+  border: 2px solid rgba(255, 0, 0, 0.829);
+}
+
+.error p {
+  color: rgba(255, 0, 0, 0.829);
 }

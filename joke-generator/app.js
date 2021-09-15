@@ -1,18 +1,47 @@
 const submitBtn = document.querySelector('input[type="submit"]'),
-	slider = document.getElementById("number");
+	slider = document.getElementById("number"),
+	jokesDisplayContainer = document.querySelector("div.display-jokes");
 
 submitBtn.addEventListener("click", getJokes);
 
-function getJokes(event) {
+async function getJokes(event) {
 	event.preventDefault();
+	jokesDisplayContainer.innerHTML = "";
+	jokesDisplayContainer.classList.remove("error");
+
+	const requestString = getRequestString();
+
+	const response = await fetch(requestString);
+
+	const dataObject = await response.json();
+
+	if (dataObject.error) {
+		displayError(dataObject.message);
+	} else {
+		if (dataObject.jokes) {
+			//Multiple jokes requested
+			dataObject.jokes.forEach((item) => {
+				if (item.type == "single") {
+					displayJoke(item.joke);
+				} else {
+					displayJoke(item.setup, item.delivery);
+				}
+			});
+		} else if (dataObject.type == "single") {
+			displayJoke(dataObject.joke);
+		} else {
+			displayJoke(dataObject.setup, dataObject.delivery);
+		}
+	}
+}
+
+function getRequestString() {
 	const category = document.getElementById("category").value,
 		number = document.getElementById("number").value,
 		type = document.getElementById("type"),
 		blockedJokes = Array.from(document.getElementsByName("block"));
 
-	let block = "",
-		jokeType,
-		amount;
+	let block = "";
 
 	if (
 		blockedJokes.some((item) => {
@@ -24,17 +53,25 @@ function getJokes(event) {
 				block += `${item.value},`;
 			}
 		});
-		// Format blocked joke string according to the API requirements
-		block = "?blacklistFlags=".concat(block.substr(0, block.length - 1));
+		block = "&blacklistFlags=".concat(block.substr(0, block.length - 1));
 	}
+
+	let jokeType, amount;
 
 	type.value.includes("any") ? (jokeType = "") : (jokeType = `&type=${type.value}`);
 	+number > 1 ? (amount = `&amount=${number}`) : (amount = "");
 
-	const requestString = category.concat(block, jokeType, amount);
+	const result = [category, block, jokeType, amount];
+	let unique = "";
 
-    //STOPPED HEREEEEEEEEE
-    //Now, just fetch data from API with the requestString
+	result.forEach((item) => {
+		if (item) {
+			unique += item;
+		}
+	});
+
+	unique = unique.replace("&", "?");
+	return "https://v2.jokeapi.dev/joke/".concat(unique);
 }
 
 slider.addEventListener("input", showSliderValue);
@@ -45,3 +82,45 @@ function showSliderValue(event) {
 	numberPosition.style.right = 111 - 12.3 * (inputValue - 1) + "px";
 	numberPosition.textContent = inputValue;
 }
+
+function displayJoke(firstLine, secondLine = "") {
+	const jokeContainer = document.createElement("div");
+	jokeContainer.className = "display";
+	const lineOne = document.createElement("p");
+	lineOne.innerText = firstLine;
+	const lineTwo = document.createElement("p");
+	lineTwo.innerText = secondLine;
+
+	jokeContainer.append(lineOne);
+	jokeContainer.append(lineTwo);
+
+	jokesDisplayContainer.append(jokeContainer);
+}
+
+/*
+<div class="display-jokes">
+	<div class="display">
+		<p>Joke</p>
+		<p>Joke</p>
+	</div> 
+</div>
+*/
+
+function displayError(firstLine) {
+	const jokeContainer = document.createElement("div");
+	jokeContainer.className = "display";
+	const lineOne = document.createElement("p");
+	lineOne.innerText = firstLine.concat(". Try another filter.");
+	jokeContainer.append(lineOne);
+	jokesDisplayContainer.classList.add("error");
+	jokesDisplayContainer.append(jokeContainer);
+}
+
+/*
+<div class="display-jokes error">
+	<div class="display">
+		<p>Joke</p>
+		<p>Joke</p>
+	</div> 
+</div>
+*/

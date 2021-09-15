@@ -39,15 +39,23 @@
 						</div>
 
 						<div class="group">
-							<input type="checkbox" id="religious" name="block" value="religious" />
+							<input type="checkbox" name="block" value="religious" />
 							<label for="religious"> religious</label>
 						</div>
 						<div class="group">
-							<input type="checkbox" id="political" name="block" value="political" />
+							<input type="checkbox" name="block" value="political" />
 							<label for="political">political</label>
 						</div>
 						<div class="group">
-							<input type="checkbox" id="explicit" name="block" value="explicit" />
+							<input type="checkbox" id="explicit" name="block" value="racist" />
+							<label for="explicit"> racist</label>
+						</div>
+						<div class="group">
+							<input type="checkbox" name="block" value="sexist" />
+							<label for="explicit"> sexist</label>
+						</div>
+						<div class="group">
+							<input type="checkbox" name="block" value="explicit" />
 							<label for="explicit"> explicit</label>
 						</div>
 					</div>
@@ -55,11 +63,12 @@
 				<div class="number-jokes">
 					<span>1</span>
 					<label for="number">Number of jokes:</label>
-					<input type="range" name="number" id="number" value="1" min="1" max="10"/>
+					<input type="range" name="number" id="number" value="1" min="1" max="10" />
 				</div>
 				<input type="submit" value="Get the jokes" />
 			</form>
 		</main>
+		<div class="display-jokes"></div>
 		<script src="app.js"></script>
 	</body>
 </html>
