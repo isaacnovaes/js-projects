@@ -7,13 +7,11 @@ submitBtn.addEventListener("click", getJokes);
 async function getJokes(event) {
 	event.preventDefault();
 	jokesDisplayContainer.innerHTML = "";
-	jokesDisplayContainer.classList.remove("error");
+	jokesDisplayContainer.className = "display-jokes";
 
-	const requestString = getRequestString();
-
-	const response = await fetch(requestString);
-
-	const dataObject = await response.json();
+	const requestString = getRequestString(),
+		response = await fetch(requestString),
+		dataObject = await response.json();
 
 	if (dataObject.error) {
 		displayError(dataObject.message);
@@ -107,12 +105,11 @@ function displayJoke(firstLine, secondLine = "") {
 */
 
 function displayError(firstLine) {
+	jokesDisplayContainer.className = "error";
 	const jokeContainer = document.createElement("div");
-	jokeContainer.className = "display";
 	const lineOne = document.createElement("p");
 	lineOne.innerText = firstLine.concat(". Try another filter.");
 	jokeContainer.append(lineOne);
-	jokesDisplayContainer.classList.add("error");
 	jokesDisplayContainer.append(jokeContainer);
 }
 
